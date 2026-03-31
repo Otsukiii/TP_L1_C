@@ -11,9 +11,6 @@ int load(char name[50]){
     if(file == NULL){
         return -1;
     }
-    else{
-        printf("OUVERTURE DU FICHIER POUR CHARGEMENT REUSSI\n");
-    }
 
     fgets(buffer, 50, file);
     fclose(file);
@@ -32,7 +29,7 @@ int save(char name[50], int score){
         return -1;
     }
     else{
-        printf("OUVERTURE/CREATION DU FICHIER POUR SAUVEGARDE REUSSI\n");
+        printf("Sauvegarde reussie.\n\n");
     }
 
     fprintf(file, "%d\n", score);
@@ -50,12 +47,22 @@ int create(char name[50], int score){
     if(file == NULL){
         return -1;
     }
-    else{
-        printf("OUVERTURE/CREATION DU FICHIER POUR SAUVEGARDE REUSSI\n");
-    }
 
     fprintf(file, "%d\n", score);
     fclose(file);
     
     return 0;
+}
+
+int login(char name[50]){
+    int score;
+
+    score = load(name);
+
+    if(score == -1){
+        printf("Le profile '%s' n'existe pas.\nCréation d'une sauvegarde pour '%s'.\n", name, name);
+        score = create(name, 0);
+    }
+    printf("Chargement reussi.\n\n");
+    return score;
 }

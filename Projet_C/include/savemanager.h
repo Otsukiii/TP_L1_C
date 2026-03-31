@@ -3,6 +3,30 @@
     #include <stdio.h>
 
     /**
+     * @brief Gère la connexion d'un joueur en chargeant son score.
+     *
+     * Cette fonction tente de charger les données associées au profil
+     * identifié par son nom. Si le profil n'existe pas, une nouvelle
+     * sauvegarde est créée avec un score initial de 0.
+     *
+     * @param name Chaîne de caractères représentant le nom du profil
+     *             (maximum 49 caractères + '\0').
+     *
+     * @return int Le score du joueur après chargement ou création.
+     *
+     * @note
+     * - La fonction utilise load() pour charger un profil existant.
+     * - Si load() retourne -1, cela signifie que le profil n'existe pas.
+     * - Dans ce cas, create() est appelée pour créer un nouveau profil.
+     * - Un message est affiché dans la console pour informer l'utilisateur.
+     *
+     * @warning
+     * Assurez-vous que la chaîne `name` est correctement initialisée
+     * et ne dépasse pas 50 caractères pour éviter les débordements mémoire.
+     */
+    int login(char name[50]);
+
+    /**
      * @brief Charge le score d'un joueur depuis son fichier.
      * 
      * Cette fonction construit le nom du fichier à partir du nom du joueur
