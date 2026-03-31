@@ -1,54 +1,86 @@
-***Mini-projet(Langage C):Cahier des charges(CHAMPION DES MATHS)***
+# 📘 Champion des Maths
 
-**DESCRIPTION**
+Mini-projet en langage C
 
-Ce projet est un jeu en console qui permet à l’utilisateur de s’entraîner aux opérations mathématiques de base :
+## 🧠 Description
 
-addition, soustraction, multiplication, divisions et tables de multiplication.
+**Champion des Maths** est un jeu en console permettant à l’utilisateur de s’entraîner aux opérations mathématiques de base.
 
-Le programme affiche un menu interactif et propose différents mini-jeux avec gestion des scores.
+Le programme propose plusieurs mini-jeux :
+- Addition
+- Soustraction
+- Multiplication
+- Division
+- Tables de multiplication
+- Conversions (temps, longueur)
+- Problèmes mathématiques
 
-## **FONCTIONNALITÉS**
+Un système de score permet de suivre la progression du joueur.
 
-\-Menu principal interactif
+## ⚙️ Fonctionnalités
 
-\-Choix entre plusieurs opérations :
+- 📋 Menu interactif
+- 🎲 Génération aléatoire de questions
+- ✅ Vérification des réponses
+- 🏆 Système de points
+- 💾 Sauvegarde des scores
+- 🔄 Chargement du score au démarrage
+- 🎯 Affichage des résultats (Gagné / Perdu)
 
-Addition
+## 🛠️ Prérequis
 
-Soustraction
+- Compilateur C (GCC recommandé)
+- Windows / Linux / macOS
+- Bibliothèques :
+  - stdio.h
+  - stdlib.h
+  - time.h
+  - math.h
 
-Multiplication
+## 📥 Installation
 
-Tables de multiplication
+    git clone <url-du-repo>
+    cd <nom-du-projet>
+    gcc main.c -I include src/*.c -o build/mathCM1
 
-Divisions
 
-Conversion du temps
+## ▶️ Utilisation
 
-Conversion de longueur
+### Windows
 
-Problèmes
+    cd build
+    mathCM1.exe
 
-\-Génération de nombres aléatoires
+### Linux / macOS
 
-\-Vérification des réponses de l’utilisateur
+    cd build
+    ./mathCM1
 
-\-Système de points 
 
-\-Gestion des scores avec sauvegarde dans un fichier
+## 🎮 Utilisation du programme
 
-\-Chargement du score utilisateur au démarrage
+1. Lancer le programme
+2. Choisir une option dans le menu
+3. Répondre aux questions
+4. Gagner des points
+5. Suivre votre score
 
-\-Affichage “Gagné” / “Perdu”
+## 📁 Structure du projet
 
-**BIBLIOTHÈQUES UTILISÉES**
+    .
+    ├── include/
+    │   ├── mathgames.h
+    │   └── savemanager.h
+    ├── src/
+    │   ├── mathgames.c
+    │   └── savemanager.c
+    ├── build/
+    │   ├── mathCM1.exe
+    │   ├── Alpha.txt
+    │   └── Beta.txt
+    ├── main.c
+    └── README.md
 
-\-stdio.h
+## 👨‍💻 Auteur
 
-\-stdlib.h
-
-\-time.h
-
-\-math.h
-
+Projet réalisé par les 4 collaborateurs du repositorie.
