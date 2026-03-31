@@ -8,7 +8,7 @@ int menu(void){
     int userChoice;
     
     printf("===============================\n\n");
-    printf("+-----------------------------+\n| 1: Addition                 |\n| 2: Soustraction             |\n| 3: Multiplication           |\n| 4: Table de multiplications |\n| 5: Divisions                |\n| 6: Problemes                |\n| 7: Conversion de longueur   |\n| 8: Conversion du temps      |\n| 0: Quitter                  |\n+-----------------------------+\nVotre choix: ");
+    printf("+-----------------------------+\n| 1: Addition                 |\n| 2: Soustraction             |\n| 3: Multiplication           |\n| 4: Table de multiplications |\n| 5: Divisions                |\n| 6: Problemes                |\n| 7: Conversion de longueur   |\n| 8: Conversion du temps      |\n| 9: Charger une sauvegarde   |\n| 10: Creer une sauvegarde    |\n| 11: Sauvegarder             |\n| 0: Quitter                  |\n+-----------------------------+\nVotre choix: ");
     scanf("%d", &userChoice);
     printf("\n===============================\n\n");
     
