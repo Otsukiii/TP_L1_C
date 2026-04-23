@@ -2,11 +2,12 @@
 #include <string.h>
 
 int load(char name[50]){
-    int score, trouve = 0;
-    char buffer[50], filename[54];
+    int score;//variable pour stocker le score chargé
+    char buffer[50], filename[54];//buffer pour lire le score depuis le fichier et filename pour stocker le nom du fichier à ouvrir
 
     sprintf(filename, "%s.txt", name);
     
+    //ouvre le fichier en mode lecture
     FILE *file = fopen(filename, "r");
     if(file == NULL){
         return -1;
@@ -20,10 +21,11 @@ int load(char name[50]){
 }
 
 int save(char name[50], int score){
-    char filename[54];
+    char filename[54];//variable pour stocker le nom du fichier à ouvrir
     
     sprintf(filename, "%s.txt", name);
     
+    //ouvre le fichier en mode écriture
     FILE *file = fopen(filename, "w");
     if(file == NULL){
         return -1;
@@ -39,10 +41,11 @@ int save(char name[50], int score){
 }
 
 int create(char name[50], int score){
-    char filename[54];
+    char filename[54];//variable pour stocker le nom du fichier à ouvrir
 
     sprintf(filename, "%s.txt", name);
     
+    //ouvre le fichier en mode append(ajout)
     FILE *file = fopen(filename, "a");
     if(file == NULL){
         return -1;
@@ -55,10 +58,11 @@ int create(char name[50], int score){
 }
 
 int login(char name[50]){
-    int score;
+    int score;//variable pour stocker le score chargé
 
-    score = load(name);
+    score = load(name);//charge le score du profil de l'utilisateur
 
+    //si le score est égal à -1, cela signifie que le profil n'existe pas, donc on crée un nouveau profil avec un score de 0
     if(score == -1){
         printf("Le profile '%s' n'existe pas.\nCréation d'une sauvegarde pour '%s'.\n", name, name);
         score = create(name, 0);

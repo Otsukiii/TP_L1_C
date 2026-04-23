@@ -5,7 +5,7 @@
 #include "mathgames.h"
 
 int menu(void){
-    int userChoice;
+    int userChoice;//variable pour stocker le choix de l'utilisateur
 
     printf("+-----------------------------+\n| 1: Addition                 |\n| 2: Soustraction             |\n| 3: Multiplication           |\n| 4: Table de multiplications |\n| 5: Divisions                |\n| 6: Problemes                |\n| 7: Conversion de longueur   |\n| 8: Conversion du temps      |\n| 9: Sauvegarder              |\n| 0: Quitter                  |\n+-----------------------------+\nVotre choix: ");
     scanf("%d", &userChoice);
@@ -16,10 +16,12 @@ int menu(void){
 
 int addition(void){
     int a = rand()%101, b = rand()%101, reponse;
+
     
     printf("%d + %d = ", a, b);;
     scanf("%d", &reponse);
     
+    //verifie si la reponse de l'utilisateur est correcte
     if (reponse == a+b){
         printf("\nBravo !\n\n");
         return 1;
@@ -42,6 +44,7 @@ int soustraction(void){
     printf("%d - %d = ", a, b);
     scanf("%d", &reponse);
     
+    //verifie si la reponse de l'utilisateur est correcte
     if(reponse == a-b){
         printf("\nBravo !\n\n");
         return 1;
@@ -69,11 +72,13 @@ int multiplication(void){
 
 int tabmultip(void){
     int n, i, reponse, resultat = 1;
-    
+    //n est tab.multip choisi par l'utilisateur, i est le compteur de la boucle, reponse est la reponse de l'utilisateur et resultat est le score de l'utilisateur
     printf("Sur quelle table voulez vous travailler ? (1 - 10) : ");
     scanf("%d", &n);
     printf("\n");
     
+
+    //verifie si n est entre 1 et 10, sinon affiche un message d'erreur et retourne 0
     if (n<0 || n>10){
         printf("ERREUR : Entree invalide, veuillez choisir une table entre 1 et 10.\n\n");
         return 0;
@@ -86,7 +91,7 @@ int tabmultip(void){
     }
     
     printf("\n[Exercice]\n\n");
-    
+     
     for (i = 1; i <= 10; i++){
         printf("%d x %d = ", n, i);
         scanf("%d", &reponse);
@@ -103,7 +108,7 @@ int tabmultip(void){
 }
 
 int division(void){
-    int a, b;
+    int a, b;//a est le dividende et b est le diviseur
     
     do {
         a = rand() % 100 + 1;
@@ -118,6 +123,8 @@ int division(void){
     printf("Reste : ");
     scanf("%d", &reste_utilisateur); 
     
+
+    //verifie si la reponse de l'utilisateur est correcte
     if ((reste_programme == reste_utilisateur) && (quotient_utilisateur == quotiont_programme)) {
         printf("\nBravo !\n\n");
         return 1;
@@ -139,14 +146,16 @@ int division(void){
 }
 
 int probleme(void) {
-    int type = rand() % 2;
-    int contexte = rand() % 6;
+    int type = rand() % 2;//type de probleme
+    int contexte = rand() % 6;//contexte du probleme
     int a = rand() % 49 + 2;
     int b = rand() % 49 + 2;
     int c = rand() % 29 + 2;
-    int rep;
-    int calcul;
+    int rep;//reponse de l'utilisateur
+    int calcul;//calcul de la reponse correcte 
 
+
+    //genere le probleme en fonction du contexte et du type
     switch (contexte) {
         case 0:
         switch (type) {
@@ -226,6 +235,7 @@ int probleme(void) {
     printf("Votre reponse: ");
     scanf("%d", &rep);
 
+    //verifie si la reponse de l'utilisateur est correcte
     if (rep == calcul) {
         printf("Bravo !\n");
         return 1;
@@ -239,15 +249,15 @@ int probleme(void) {
 }
 
 int convertTemps(void) {
-   int type;
-   int h, m, s;
-   int bonneReponse;
-   int user;
+   int type;//type de conversion: 0 pour heures en minutes, 1 pour minutes en secondes, 2 pour heures en secondes
+   int h, m, s;//heures, minutes et secondes
+   int bonneReponse;//reponse correcte
+   int user;//reponse de l'utilisateur
 
 
    type = rand() % 3;
 
-
+   
    if (type == 0) {
        h = rand() % 5;
        m = rand() % 60;
@@ -299,16 +309,16 @@ int convertTemps(void) {
 }
 
 int longueur() {
-    int l = rand() % 7;
-    int L = rand() % 7;
-    int a = rand() % 9 + 1;
+    int l = rand() % 7;//unité de départ
+    int L = rand() % 7;//unité d'arrivée
+    int a = rand() % 9 + 1;//valeur à convertir
 
-    float rep;
-    float rep2;
+    float rep;//reponse de l'utilisateur
+    float rep2;//reponse correcte
 
     const char *d[] = {
         "mm", "cm", "dm", "m", "dam", "hm", "km"
-    };
+    };//tableau des unités de longueur
     
     const char *d2 = d[l];
     const char *d3 = d[L];
@@ -319,6 +329,7 @@ int longueur() {
     printf("Votre reponse (en %s): ", d3);
     scanf("%f", &rep);
 
+    //verifie si la reponse de l'utilisateur est correcte en utilisant une marge d'erreur de 0.0001 pour les nombres à virgule flottante
     if (fabs(rep2 - rep) < 0.0001) {
         printf("Bravo !\n");
         return 1;
